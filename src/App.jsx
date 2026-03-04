@@ -23,7 +23,7 @@ function App() {
         <Route path="/services/cording" element={<Cording />} />
         <Route path="/services/dtf" element={<DTF />} />
         <Route path="/services/screen-printing" element={<Screenprinting />} />
-        <Route path="/services/advanced-laser-profiling" element={<Laserprofiling />} />
+        <Route path="/services/laser-cutting" element={<Laserprofiling />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
