@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './ScreenPrinting.css';
+import './Screenprinting.css';
 
 const ScreenPrinting = () => {
   useEffect(() => {
