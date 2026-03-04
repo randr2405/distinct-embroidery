@@ -4,6 +4,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = () => window.innerWidth <= 968;
 
   const services = [
     'Embroidery',
@@ -44,10 +45,13 @@ const Navbar = () => {
           
           <li 
             className="navbar-item dropdown"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={() => !isMobile() && setServicesOpen(true)}
+            onMouseLeave={() => !isMobile() && setServicesOpen(false)}
           >
-            <button className="navbar-link dropdown-toggle">
+            <button
+              className="navbar-link dropdown-toggle"
+              onClick={() => isMobile() && setServicesOpen(!servicesOpen)}
+            >
               Services
               <svg 
                 className={`dropdown-icon ${servicesOpen ? 'rotate' : ''}`}
@@ -71,6 +75,7 @@ const Navbar = () => {
                   <a 
                     href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
                     className="dropdown-link"
+                    onClick={() => { setMobileMenuOpen(false); setServicesOpen(false); }}
                   >
                     {service}
                   </a>
